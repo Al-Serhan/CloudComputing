@@ -1,4 +1,4 @@
-dbPassword = 'mongodb+srv://alan:'+ encodeURIComponent('425645') + '@alan-cluster.mongodb.net/test?retryWrites=true';
+dbPassword = 'mongodb+srv://alan:425645@alan-cluster-zflhz.mongodb.net/test?retryWrites=true&w=majority';
 
 module.exports = {
     mongoURI: dbPassword
