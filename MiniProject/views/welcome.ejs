@@ -73,7 +73,7 @@ div {
 
 /* Add a card effect for articles */
 .card {
-  background-color: white;
+  background-color: silver;
   padding: 20px;
   margin-top: 20px;
 }
@@ -112,16 +112,16 @@ div {
 </head>
 <body style="background-color:lightslategrey;">
 
-<div class="header" style="background-color:powderblue;">
-  <h1>Welcome to EngProfiler</h1>
-  <p>Share your projects and communicate with other engineers.</p>
+<div class="header" style="background: url(https://static.kent.ac.uk/nexus/ems/960.jpg);">
+  <h1 style="color:orange;">Welcome to EngProfiler</h1>
+  <p style="color:orange;">Share your projects and communicate with other engineers.</p>
 </div>
 
 <div class="topnav">
   <a href="/">Home Page</a>
   <a href="https://www.gmit.ie/">GMIT Website</a>
-  <a href="/users/aboutus">About us</a>
-  <a href="/users/chatroom" style="float:right">Join the Chat Room</a>
+  <a href="/aboutus">About us</a>
+  <a href="/users/chatroom" style="float:right">Chat (coming soon)</a>
 </div>
 
 <div class="row">
@@ -129,19 +129,19 @@ div {
     <div class="card">
       <h2>Latest Projects</h2>
       <h5>Check out Darragh's project in 2017</h5>
-       <img src="/images/matrix.jpg" alt="HTML5 Icon" style="width:400px;height:300px;">
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+       <img src="https://hackaday.com/wp-content/uploads/2018/11/main6.jpg?w=800" alt="some picture" style="width:800px;height:300px;">
+      <p>Matrix 8x8 LED Board</p>
+      <p>The board is programmed using an arduino uno board to light up a custom coded pattern on an 8x8 Matrix LED.</p>
     </div>
     <div class="card">
-      <h2>TITLE HEADING</h2>
-      <h5>Title description, Sep 2, 2017</h5>
-      <div class="fakeimg" style="height:200px;">Image</div>
-      <p>Some text..</p>
-      <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      <h2>What's new?</h2>
+      <h5>EngProfiler Website update, April 1, 2020</h5>
+      <img src="https://girlwritingcom.files.wordpress.com/2017/07/version-2.jpg" alt="some picture" style="width:800px;height:300px;">
+      <p>Version 2.0., now you can create your own profile!</p>
+      <p>Now with our latest update, you can create your own profile, register a new account using the "register" button, or just sign in if you're already in game.</p>
     </div>
   </div>
-  <div class="rightcolumn" style="background-color:powderblue;">
+  <div class="rightcolumn" style="background-color:orange;">
     <div class="card">
       <h2>GMIT</h2>
       <div class="row mt-6">
@@ -156,20 +156,40 @@ div {
       </div>
     </div>
     <div class="card">
-      <h3>Popular Projects</h3>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
-      <div class="fakeimg"><p>Image</p></div>
+      <h3>Live Temperature & Humidity readings through ESP32</h3>
+      <div style="background-color:yellow;"><p>Humidity: <span id="humidity">000</span>%</p></div>
     </div>
     <div class="card">
-      <h3>Follow us</h3>
-      <p>Some text..</p>
+      <h3>Contact The Devs</h3>
+      <p>G00349187@gmit.ie</p>
+      <p>G00336171@gmit.ie</p>
     </div>
   </div>
 </div>
 <div class="footer">
-  <h2>Footer</h2>
+  <h2>EngProfiler is a lounge for GMIT Engineering students to share their projects and communicate with each other, you can view other people's work and engage by creating your own profile. Start now!</h2>
 </div>
 
 </body>
+
+<script>
+setInterval(function() {
+  // Call a function repetatively with 200 millisecond interval
+  updateHumidity();
+//    updateJSON();
+}, 1000); //1000 mSeconds update rate
+
+function updateHumidity() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       document.getElementById("humidity").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "/getHumidity?myName=abc&myNum=123", true);
+  xhttp.send();
+}
+</script>
+
+
 </html>

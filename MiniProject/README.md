@@ -2,12 +2,11 @@
 
 This is a user login and registration app using Node.js, Express, Passport, Mongoose, EJS and some other packages.
 
-### Version: 2.0.0
-
 ### Usage
 
 ```sh
-$ npm install
+$ npm i express bcryptjs passport passport-local ejs express-ejs-layouts mongoose connect-flash express-session
+$ npm i -D nodemon
 ```
 
 ```sh
@@ -15,7 +14,7 @@ $ npm start
 # Or run with Nodemon
 $ npm run dev
 
-# Visit http://localhost:5000
+# Go to http://localhost:8000
 ```
 
 ### MongoDB
